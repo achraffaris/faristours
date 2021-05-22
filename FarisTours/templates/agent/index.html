@@ -1,0 +1,183 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+   <!-- Page Title -->
+    <title>{% block title %}
+    
+    {% endblock title %}</title>
+   <!-- Meta Data -->
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta http-equiv="content-type" content="text/html; charset=utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="description" content="">
+   <meta name="keywords" content="">
+
+   <!-- Favicon -->
+   <link rel="shortcut icon" href="assets/img/favicon.png">
+
+   <!-- Web Fonts -->
+   <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&display=swap" rel="stylesheet">
+   
+   <!-- ======= BEGIN GLOBAL MANDATORY STYLES ======= -->
+   <link rel="stylesheet" href="{% static 'agent/assets/bootstrap/css/bootstrap.min.css' %}">
+   <link rel="stylesheet" href="{% static 'agent/assets/fonts/icofont/icofont.min.css' %}">
+   <link rel="stylesheet" href="{% static 'agent/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.css' %}">
+   <!-- ======= END BEGIN GLOBAL MANDATORY STYLES ======= -->
+   
+   <!-- ======= BEGIN PAGE LEVEL PLUGINS STYLES ======= -->
+   <link rel="stylesheet" href="{% static 'agent/assets/plugins/apex/apexcharts.css' %}">
+   <!-- ======= END BEGIN PAGE LEVEL PLUGINS STYLES ======= -->
+
+   <!-- ======= MAIN STYLES ======= -->
+   <link rel="stylesheet" href="{% static 'agent/assets/css/style.css' %}">
+   <!-- ======= END MAIN STYLES ======= -->
+
+</head>
+
+<body>
+
+   <!-- Offcanval Overlay -->
+   <div class="offcanvas-overlay"></div>
+   <!-- Offcanval Overlay -->
+
+   <!-- Wrapper -->
+   <div class="wrapper">
+
+      <!-- Header -->
+      <header class="header white-bg fixed-top d-flex align-content-center flex-wrap">
+         <!-- Logo -->
+         <div class="logo">
+            <a href="index.html" class="default-logo"><img src="{% static 'ui/img/logo_menu.png' %}" alt=""></a>
+            <a href="index.html" class="mobile-logo"><img src="{% static 'ui/img/logo_menu.png' %}" alt=""></a>
+         </div>
+         <!-- End Logo -->
+
+         <!-- Main Header -->
+         <div class="main-header">
+            <div class="container-fluid">
+               <div class="row justify-content-between">
+                  <div class="col-3 col-lg-1 col-xl-4">
+                     <!-- Header Left -->
+                     <div class="main-header-left h-100 d-flex align-items-center">
+                        <!-- Main Header User -->
+                        <div class="main-header-user">
+                           <a href="#" class="d-flex align-items-center" data-toggle="dropdown">
+                              <div class="menu-icon">
+                                 <span></span>
+                                 <span></span>
+                                 <span></span>
+                              </div>
+
+                              <div class="user-profile d-xl-flex align-items-center d-none">
+                                 <!-- User Avatar -->
+                                 <div class="user-avatar">
+                                    <img src="assets/img/avatar/user.png" alt="">
+                                 </div>
+                                 <!-- End User Avatar -->
+
+                                 <!-- User Info -->
+                                 <div class="user-info">
+                                    <h4 class="user-name">Abrilay Khatun</h4>
+                                    <p class="user-email">abrilakh@gmail.com</p>
+                                 </div>
+                                 <!-- End User Info -->
+                              </div>
+                           </a>
+                           <div class="dropdown-menu">
+                              <a href="#">My Profile</a>
+                              <a href="#">task</a>
+                              <a href="#">Settings</a>
+                              <a href="#">Log Out</a>
+                           </div>
+                        </div>
+                        <!-- End Main Header User -->
+
+                        <!-- Main Header Menu -->
+                        <div class="main-header-menu d-block d-lg-none">
+                           <div class="header-toogle-menu">
+                              <!-- <i class="icofont-navigation-menu"></i> -->
+                              <img src="assets/img/menu.png" alt="">
+                           </div>
+                        </div>
+                        <!-- End Main Header Menu -->
+                     </div>
+                     <!-- End Header Left -->
+                  </div>
+                  <div class="col-9 col-lg-11 col-xl-8">
+                     <!-- Header Right -->
+                     
+                     <!-- End Header Right -->
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- End Main Header -->
+      </header>
+      <!-- End Header -->
+
+      <!-- Main Wrapper -->
+      <div class="main-wrapper">
+         <!-- Sidebar -->
+         <nav class="sidebar" data-trigger="scrollbar">
+            <!-- Sidebar Header -->
+            <div class="sidebar-header d-none d-lg-block">
+               <!-- Sidebar Toggle Pin Button -->
+               <div class="sidebar-toogle-pin">
+                  <i class="icofont-tack-pin"></i>
+               </div>
+               <!-- End Sidebar Toggle Pin Button -->
+            </div>
+            <!-- End Sidebar Header -->
+
+            <!-- Sidebar Body -->
+            <div class="sidebar-body">
+               <!-- Nav -->
+               <ul class="nav">
+                  <li class="nav-category">Main</li>
+                  <li class="active">
+                     <a href="index.html">
+                        <i class="icofont-pie-chart"></i>
+                        <span class="link-title">Dashboard</span>
+                     </a>
+                  </li>
+                  <li class="nav-category">apps</li>
+               </ul>
+               <!-- End Nav -->
+            </div>
+            <!-- End Sidebar Body -->
+         </nav>
+         <!-- End Sidebar -->
+
+         <!-- Main Content -->
+         <div class="main-content">
+            <div class="container-fluid">
+            {% block content %}
+            
+            {% endblock content %}
+               </div>
+         </div>
+         <!-- End Main Content -->
+      </div>
+      <!-- End Main Wrapper -->
+
+   </div>
+   <!-- End wrapper -->
+
+   <!-- ======= BEGIN GLOBAL MANDATORY SCRIPTS ======= -->
+   <script src="{% static 'agent/assets/js/jquery.min.js' %}"></script>
+   <script src="{% static 'agent/assets/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+   <script src="{% static 'agent/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
+   <script src="{% static 'agent/assets/js/script.js' %}"></script>
+   <!-- ======= BEGIN GLOBAL MANDATORY SCRIPTS ======= -->
+
+   <!-- ======= BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS ======= -->
+{% block scripts %}
+
+{% endblock scripts %}
+
+   <!-- ======= End BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS ======= -->
+</body>
+
+</html>

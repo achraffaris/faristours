@@ -1,0 +1,164 @@
+{% extends 'agent/layout.html' %}
+
+{% load static %}
+{% block title %} Tours {% endblock title %}  
+
+{% block breadcrumb1 %} Tours {% endblock breadcrumb1 %}
+{% block breadcrumb2 %} Tours {% endblock breadcrumb2 %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'agent/assets/fonts/et-lineicon/et-lineicons.css' %}">
+{% endblock styles %}
+                                    {% block content %}
+                                    
+<div class="row">
+                  <div class="col-12">
+                    <!-- Card -->
+                    <div class="bg-c2-light profile-widget-header">
+                        <h4>
+                            Manage
+                        </h4>
+                    </div>
+                    <div class="card bg-transparent">
+                        <div class="card-body bg-white mb-30">
+                            <!-- Invoice Header -->
+                            <div class="invoice-header d-flex align-items-sm-center media flex-column flex-sm-row">
+                                <div class="invoice-header-left d-flex align-items-center position-relative">
+                                    <div class="">
+                                        <a href="{% url 'add_tour' %}" class="btn-circle">
+                                            <img src="{% static 'agent/assets/img/svg/plus_white.svg' %}" alt="" class="svg">
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="invoice-header-right d-flex align-items-center justify-content-end media-body mt-3 mt-sm-0">
+                                    <!-- Search Form -->
+                                    <form action="#" class="search-form">
+                                        <div class="theme-input-group">
+                                        <input type="text" class="theme-input-style" placeholder="Search Here">
+
+                                        <button type="submit"><img src="{% static 'agent/assets/img/svg/search-icon.svg' %}" alt="" class="svg"></button>
+                                        </div>
+                                    </form>
+                                    <!-- End Search Form -->
+
+                                    <!-- Pagination -->
+                                    <div class="pagination style--two d-flex flex-column align-items-center ml-3">
+                  <ul class="list-inline d-inline-flex align-items-center">
+                  
+                  <li>
+                  {% if page_obj.has_previous %}
+                  <a href="?page={{ page_obj.previous_page_number }}" class="current">
+                      <img src="{% static 'agent/assets/img/svg/left-angle.svg' %}" alt="" class="svg">
+                  </a>
+                  {% else %}
+                  <a href="#">
+                      <img src="{% static 'agent/assets/img/svg/left-angle.svg' %}" alt="" class="svg">
+                  </a>
+                          {% endif %}
+
+                  </li>
+                  <li>
+                  {% if page_obj.has_next %}
+                  <a href="?page={{ page_obj.next_page_number }}" class="current">
+                      <img src="{% static 'agent/assets/img/svg/right-angle.svg' %}" alt="" class="svg">
+                  </a>
+                  {% else %}
+                  <a href="#">
+                      <img src="{% static 'agent/assets/img/svg/right-angle.svg' %}" alt="" class="svg">
+                  </a>
+                          {% endif %}
+
+                  </li>
+                  </ul>
+              </div>
+                                    <!-- End Pagination -->
+                                </div>
+                            </div>
+                            <!-- End Invoice Header -->
+                        </div>
+
+                        <div class="table-responsive">
+                            <!-- Invoice List Table -->
+                            <div class="bg-c2-light profile-widget-header">
+         <h4 class="d-flex align-items-center">
+             Tours
+         </h4>
+     </div>
+                            <table class="invoice-list-table text-nowrap bg-white">
+                                <thead>
+                                    <tr>
+                                        <th>ID </th>
+                                        <th>Title </th>
+                                        <th>Price </th>
+                                        <th>Created at</th>
+                                        <th>Duration</th>
+                                        <th>Actions </th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                
+                                {% for tr in tours %}
+                                    <tr>
+                                        <td>#{{tr.id}}</td>
+                                        <td>{{tr.title}}</td>
+                                        <td>${{tr.price}}</td>
+                                        <td>{{tr.created_at}}</td>
+                                        {% if tr.duration == 1 %}
+                                            <td>{{tr.duration}} Day</td>
+                                        
+                                        {% else %}
+                                            <td>{{tr.duration}} Days</td>
+                                        {% endif %}
+                                        
+                                        <td>
+
+                                        <a href="{% url 'update_tour' tr.id %}" type="button" class="btn-sm"><i class="icofont-edit"></i></a>  
+                                        <a href=""  data-toggle="modal" data-target="#exampleModal" class="btn-danger"><i class="icofont-bin"></i></a>  
+                                        </td>
+                                    </tr>
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<form method="POST" action="{% url 'delete_tour' tr.id %}">
+{% csrf_token %}
+<div class="modal-dialog" role="document">
+   <div class="modal-content">
+      <div class="modal-header">
+         <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+         </button>
+      </div>
+      <div class="modal-footer">
+            <button type="submit" class="swal2-confirm btn long">Yes, delete it!</button>
+            <button type="button" class="swal2-cancel btn long bg-danger ml-1" data-dismiss="modal">Close</button>
+         </div>
+   </div>
+</div>
+<form>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                  </div>
+               </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    
+                                    {% endblock content %}

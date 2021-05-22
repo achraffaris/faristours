@@ -1,0 +1,114 @@
+{% extends 'client/layout.html' %}
+{% load widget_tweaks %}
+{% block title %}{% endblock title %}
+{% block head %}
+<script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+<script src="https://js.stripe.com/v3/"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+{% include 'django_quill/media.html' %}
+<style>
+   .swiper-container {
+   width: 100%;
+   height: 100%;
+   }
+   .swiper-slide {
+   text-align: center;
+   font-size: 18px;
+   background: #fff;
+   /* Center slide text vertically */
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: -webkit-flex;
+   display: flex;
+   -webkit-box-pack: center;
+   -ms-flex-pack: center;
+   -webkit-justify-content: center;
+   justify-content: center;
+   -webkit-box-align: center;
+   -ms-flex-align: center;
+   -webkit-align-items: center;
+   align-items: center;
+   }
+   .swiper-slide img {
+   display: block;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   }
+</style>
+<link
+   rel="stylesheet"
+   href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+{% endblock head %}
+{% block content %}
+
+
+
+
+{% endblock content %}
+{% block scripts %}
+<script type="text/javascript">
+   $.noConflict();
+   jQuery(document).ready(function ($) {
+       $('#CollectedDate').datepicker();
+   });
+</script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<!-- Initialize Swiper -->
+<script>
+   var swiper = new Swiper(".mySwiper", {
+     spaceBetween: 30,
+     centeredSlides: true,
+     autoplay: {
+       delay: 3500,
+       disableOnInteraction: false,
+     },
+     pagination: {
+       el: ".swiper-pagination",
+       clickable: true,
+     },
+     navigation: {
+       nextEl: ".swiper-button-next",
+       prevEl: ".swiper-button-prev",
+     },
+     
+   });
+</script>
+<script>
+   window.onload = function() {
+     var recaptcha = document.forms["booking_form"]["g-recaptcha-response"];
+     recaptcha.required = true;
+     recaptcha.oninvalid = function(e) {
+   	// do something
+   	alert("Please complete the captcha");
+     }
+   }
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+<script>
+   var stripe = Stripe("{{STRIPE_PUBLIC_KEY}}");
+   const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+   $("#booking_form").submit(function(e){
+   	e.preventDefault();
+   	$.ajax({
+   		
+              type: 'POST',
+              url: "{% url 'ui:create-checkout-session' tour.slug %}",
+              data: {
+   			planning: $("#planning").val(),
+   			full_name:$("#full_name").val() ,
+   			email:$("#email").val(),
+   			phone:$("#phone").val(),
+   			csrfmiddlewaretoken: '{{ csrf_token }}',
+   		},
+              success: function (response) {
+                  var id = response["id"];
+   			return stripe.redirectToCheckout({ sessionId: id });
+              },
+              error: function (response) {
+   			alter(response["error"]);
+              }
+          })
+   })
+</script>
+{% endblock scripts %}

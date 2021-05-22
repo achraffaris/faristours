@@ -1,0 +1,293 @@
+Traceback (most recent call last):
+  File "/home/tmtryxip/FarisTours/passenger_wsgi.py", line 1, in <module>
+    from faristours.wsgi import application
+  File "/home/tmtryxip/FarisTours/faristours/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/apps/registry.py", line 114, in populate
+    app_config.import_models()
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/apps/config.py", line 301, in import_models
+    self.models_module = import_module(models_module_name)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/contrib/auth/models.py", line 3, in <module>
+    from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/contrib/auth/base_user.py", line 48, in <module>
+    class AbstractBaseUser(models.Model):
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/db/models/base.py", line 122, in __new__
+    new_class.add_to_class('_meta', Options(meta, app_label))
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/db/models/base.py", line 326, in add_to_class
+    value.contribute_to_class(cls, name)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/db/models/options.py", line 207, in contribute_to_class
+    self.db_table = truncate_name(self.db_table, connection.ops.max_name_length())
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/utils/connection.py", line 15, in __getattr__
+    return getattr(self._connections[self._alias], item)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/utils/connection.py", line 62, in __getitem__
+    conn = self.create_connection(alias)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/db/utils.py", line 204, in create_connection
+    backend = load_backend(db['ENGINE'])
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/db/utils.py", line 111, in load_backend
+    return import_module('%s.base' % backend_name)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 73, in <module>
+    check_sqlite_version()
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 69, in check_sqlite_version
+    'SQLite 3.9.0 or later is required (found %s).' % Database.sqlite_version
+django.core.exceptions.ImproperlyConfigured: SQLite 3.9.0 or later is required (found 3.7.17).
+2021-05-17 14:58:58.242725 [UID:1085][12877] Child process with pid: 12923 was killed by signal: 15, core dump: 0
+Traceback (most recent call last):
+  File "/home/tmtryxip/FarisTours/passenger_wsgi.py", line 1, in <module>
+    from faristours.wsgi import application
+  File "/home/tmtryxip/FarisTours/faristours/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/apps/registry.py", line 114, in populate
+    app_config.import_models()
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/apps/config.py", line 301, in import_models
+    self.models_module = import_module(models_module_name)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/contrib/auth/models.py", line 3, in <module>
+    from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/contrib/auth/base_user.py", line 48, in <module>
+    class AbstractBaseUser(models.Model):
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/db/models/base.py", line 122, in __new__
+    new_class.add_to_class('_meta', Options(meta, app_label))
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/db/models/base.py", line 326, in add_to_class
+    value.contribute_to_class(cls, name)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/db/models/options.py", line 207, in contribute_to_class
+    self.db_table = truncate_name(self.db_table, connection.ops.max_name_length())
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/utils/connection.py", line 15, in __getattr__
+    return getattr(self._connections[self._alias], item)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/utils/connection.py", line 62, in __getitem__
+    conn = self.create_connection(alias)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/db/utils.py", line 204, in create_connection
+    backend = load_backend(db['ENGINE'])
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/db/utils.py", line 111, in load_backend
+    return import_module('%s.base' % backend_name)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 73, in <module>
+    check_sqlite_version()
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/db/backends/sqlite3/base.py", line 69, in check_sqlite_version
+    'SQLite 3.9.0 or later is required (found %s).' % Database.sqlite_version
+django.core.exceptions.ImproperlyConfigured: SQLite 3.9.0 or later is required (found 3.7.17).
+Invalid HTTP_HOST header: 'demo.achraffaris.net'. You may need to add 'demo.achraffaris.net' to ALLOWED_HOSTS.
+Bad Request: /faristours/
+Invalid HTTP_HOST header: 'demo.achraffaris.net'. You may need to add 'demo.achraffaris.net' to ALLOWED_HOSTS.
+Bad Request: /faristours/
+Not Found: /faristours/static/ui/css/style.css
+Not Found: /static/ui/css/menu.css
+Not Found: /static/ui/css/responsive.css
+Not Found: /static/ui/css/icon_fonts/css/all_icons.min.css
+Not Found: /static/ui/js/modernizr.js
+Not Found: /static/ui/css/style.css
+Not Found: /static/ui/css/custom.css
+Not Found: /static/ui/css/jquery.cookiebar.css
+Not Found: /static/ui/css/animate.min.css
+Not Found: /static/ui/css/bootstrap.min.css
+Not Found: /static/ui/js/jquery-2.2.4.min.js
+Not Found: /static/ui/js/common_scripts_min.js
+Not Found: /static/ui/assets/validate.js
+Not Found: /static/ui/js/jquery.tweet.min.js
+Not Found: /static/ui/img/logo_menu.png
+Not Found: /static/ui/js/functions.js
+Not Found: /static/ui/img/favicon.ico
+Not Found: /static/ui/css/animate.min.css
+Not Found: /static/ui/css/style.css
+Not Found: /static/ui/css/icon_fonts/css/all_icons.min.css
+Not Found: /static/ui/css/custom.css
+Not Found: /static/ui/js/modernizr.js
+Not Found: /static/ui/css/jquery.cookiebar.css
+Not Found: /static/ui/css/responsive.css
+Not Found: /static/ui/css/bootstrap.min.css
+Not Found: /static/ui/css/menu.css
+Not Found: /static/ui/js/jquery-2.2.4.min.js
+Not Found: /static/ui/js/common_scripts_min.js
+Not Found: /static/ui/js/jquery.tweet.min.js
+Not Found: /static/ui/img/logo_menu.png
+Not Found: /static/ui/js/functions.js
+Not Found: /static/ui/assets/validate.js
+Not Found: /static/ui/js/jquery.tweet.min.js
+Not Found: /static/ui/js/functions.js
+Not Found: /static/ui/img/favicon.ico
+Not Found: /static/ui/css/bootstrap.min.css
+Not Found: /static/ui/css/style.css
+Not Found: /static/ui/css/custom.css
+Not Found: /static/ui/css/icon_fonts/css/all_icons.min.css
+Not Found: /static/ui/css/jquery.cookiebar.css
+Not Found: /static/ui/css/responsive.css
+Not Found: /static/ui/css/menu.css
+Not Found: /static/ui/css/animate.min.css
+Not Found: /static/ui/css/animate.min.css
+Not Found: /static/ui/css/responsive.css
+Not Found: /static/ui/css/custom.css
+Not Found: /static/ui/js/modernizr.js
+Not Found: /static/ui/css/bootstrap.min.css
+Not Found: /static/ui/css/style.css
+Not Found: /static/ui/css/icon_fonts/css/all_icons.min.css
+Not Found: /static/ui/css/jquery.cookiebar.css
+Not Found: /static/ui/css/menu.css
+Not Found: /static/ui/js/jquery-2.2.4.min.js
+Not Found: /static/ui/js/common_scripts_min.js
+Not Found: /static/ui/js/jquery.tweet.min.js
+Not Found: /static/ui/js/functions.js
+Not Found: /static/ui/img/logo_menu.png
+Not Found: /static/ui/assets/validate.js
+Not Found: /static/ui/js/jquery.tweet.min.js
+Not Found: /static/ui/js/functions.js
+Not Found: /static/ui/img/favicon.ico
+Not Found: /static/ui/css/bootstrap.min.css.map
+Not Found: /static/ui/js/bootstrap-select.js.map
+Not Found: /agent
+Not Found: /favicon.ico
+Not Found: /accounts/login/assets/img/favicon.png
+Not Found: /!/assets/img/favicon.png
+Not Found: /static/django_quill/django_quill.css
+Not Found: /static/django_quill/django_quill.js
+Not Found: /static/django_quill/django_quill.js
+Not Found: /static/django_quill/django_quill.css
+Not Found: /!/tours/assets/img/favicon.png
+Not Found: /static/django_quill/django_quill.css
+Not Found: /static/django_quill/django_quill.js
+Not Found: /static/django_quill/django_quill.js
+Not Found: /static/django_quill/django_quill.css
+Not Found: /static/agent/assets/bootstrap/js/bootstrap.bundle.min.js.map
+Not Found: /static/django_quill/django_quill.css
+Not Found: /static/agent/assets/bootstrap/js/bootstrap.bundle.min.js.map
+Not Found: /static/django_quill/django_quill.css
+Not Found: /static/django_quill/django_quill.js
+Not Found: /static/django_quill/django_quill.css
+Not Found: /static/django_quill/django_quill.js
+Not Found: /static/ui/img/logo1.png
+Not Found: /static/agent/assets/bootstrap/js/bootstrap.bundle.min.js.map
+Not Found: /!/tours/assets/img/favicon.png
+Not Found: /static/agent/assets/bootstrap/js/bootstrap.bundle.min.js.map
+Not Found: /!/tours/assets/img/favicon.png
+Not Found: /!/assets/img/favicon.png
+Not Found: /favicon.ico
+Not Found: /!/assets/img/favicon.png
+Not Found: /static/ui/css/%7B%%20static%20'ui/img/Faris.jpg'%20%%7D
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 167, in _get_response
+    callback, callback_args, callback_kwargs = self.resolve_request(request)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/core/handlers/base.py", line 290, in resolve_request
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/urls/resolvers.py", line 556, in resolve
+    for pattern in self.url_patterns:
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/urls/resolvers.py", line 598, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/urls/resolvers.py", line 591, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/tmtryxip/FarisTours/faristours/urls.py", line 25, in <module>
+    path('', include('ui.urls')),
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/urls/conf.py", line 34, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/tmtryxip/FarisTours/ui/urls.py", line 12, in <module>
+    path('stripe/webhooks',views.stripe_webhook,name="stripe_webhook"),
+AttributeError: module 'ui.views' has no attribute 'stripe_webhook'
+Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/utils/deprecation.py", line 116, in __call__
+    response = self.process_request(request)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/middleware/common.py", line 53, in process_request
+    if self.should_redirect_with_slash(request):
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/middleware/common.py", line 70, in should_redirect_with_slash
+    if not is_valid_path(request.path_info, urlconf):
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/urls/base.py", line 153, in is_valid_path
+    return resolve(path, urlconf)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/urls/base.py", line 24, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/urls/resolvers.py", line 556, in resolve
+    for pattern in self.url_patterns:
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/urls/resolvers.py", line 598, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/urls/resolvers.py", line 591, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/tmtryxip/FarisTours/faristours/urls.py", line 25, in <module>
+    path('', include('ui.urls')),
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib/python3.6/site-packages/django/urls/conf.py", line 34, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/home/tmtryxip/virtualenv/FarisTours/3.6/lib64/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/tmtryxip/FarisTours/ui/urls.py", line 12, in <module>
+    path('stripe/webhooks',views.stripe_webhook,name="stripe_webhook"),
+AttributeError: module 'ui.views' has no attribute 'stripe_webhook'
+Not Found: /favicon.ico
+Not Found: /static/ui/css/%7B%%20static%20'ui/img/Faris.jpg'%20%%7D
+2021-05-17 17:43:47.374067 [UID:1085][31865] Child process with pid: 31930 was killed by signal: 15, core dump: 0
+Not Found: /!/assets/img/favicon.png
+Not Found: /static/ui/js/bootstrap-select.js.map
+Not Found: /static/ui/css/bootstrap.min.css.map
+Not Found: /static/ui/css/bootstrap.min.css.map
+Not Found: /static/ui/js/bootstrap-select.js.map
+Not Found: /!/assets/img/favicon.png
+Not Found: /favicon.ico
+Not Found: /static/ui/css/bootstrap.min.css.map
+Not Found: /static/ui/js/bootstrap-select.js.map
+Not Found: /static/ui/css/bootstrap.min.css.map
+Not Found: /static/ui/js/bootstrap-select.js.map
+Not Found: /static/ui/css/bootstrap.min.css.map
+Not Found: /static/ui/js/bootstrap-select.js.map
+Not Found: /static/ui/css/bootstrap.min.css.map
+Not Found: /static/ui/js/bootstrap-select.js.map
+Not Found: /favicon.ico
+Not Found: /static/ui/css/%7B%%20static%20'ui/img/Faris.jpg'%20%%7D
+Not Found: /static/ui/css/%7B%%20static%20'ui/img/Faris.jpg'%20%%7D
+Not Found: /list.html
+Not Found: /favicon.ico
+Not Found: /grid.html
+Not Found: /assets/newsletter.php
+Not Found: /about.html
+2021-05-17 23:06:00.609325 [UID:1085][7525] Child process with pid: 7596 was killed by signal: 15, core dump: 0
+Not Found: /static/ui/css/%7B%%20static%20'ui/img/Faris.jpg'%20%%7D

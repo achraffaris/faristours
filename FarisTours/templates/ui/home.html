@@ -1,0 +1,100 @@
+{% extends 'ui/layout.html' %}
+
+{% load static %}
+{% block content %}
+
+
+<section class="parallax_window_in" data-parallax="scroll" data-image-src="{% static 'ui/img/Faris.jpg' %}" data-natural-width="1400" data-natural-height="470">
+		<div id="hero_video">
+			<div id="animate_intro" class="animated fadeInUp">
+				<h3>Enjoy a Perfect Tour</h3>
+				<p>
+					Find the best Tours and Excursion at the best price
+				</p>
+			</div>
+		</div>
+	</section>
+<section class="wrapper">
+		<div class="divider_border"></div>
+
+		<div class="container">
+
+			<div class="main_title">
+				<h2>Our <span>Top</span> Travel Tours</h2>
+				<p>Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.</p>
+			</div>
+			<div class="row">
+                {% for toptr in top_tours %}
+				<div class="col-md-4 col-sm-6 wow fadeIn animated animated" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeIn;">
+					<div class="img_wrapper">
+						<div class="ribbon">
+							<span>Popular</span>
+						</div>
+						<div class="price_grid">
+							<sup>$</sup>{{toptr.price}}
+						</div>
+						<div class="img_container">
+							<a href="{% url 'ui:single_tour' toptr.slug %}">
+								<img src="{{toptr.thumbnail.url}}" width="800" height="533" class="img-responsive" alt="">
+								<div class="short_info">
+									<h3>{{toptr.title}}</h3>
+									<em>Duration {{toptr.duration}} days</em>
+									<p>
+										{{toptr.subtitle}}
+									</p>
+									<div class="score_wp">Superb
+										<div class="score">{{toptr.feedbacks}}</div>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+					<!-- End img_wrapper -->
+				</div>
+                {% endfor %}
+
+
+			</div>
+			<!-- End row -->
+
+			<div class="main_title_2">
+				<h3>View other <span>popular</span> tours</h3>
+				<p>Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.</p>
+			</div>
+			<div class="row list_tours">
+				<div class="col-sm-6">
+					<h3>New Tours</h3>
+					<ul>
+					{% for new_tour in new_tours %}
+						<li>
+							<div>
+								<a href="{% url 'ui:single_tour' new_tour.slug %}">
+									<figure><img src="{{new_tour.thumbnail.url}}" alt="thumb" class="img-rounded" width="60" height="60">
+									</figure>
+									<h4>{{new_tour.title}}</h4>
+									<small>Duration {{new_tour.duration}} days</small>
+									<span class="price_list">${{new_tour.price}}</span>
+								</a>
+							</div>
+						</li>
+					{% endfor %}
+					</ul>
+				</div>
+
+				<div class="col-sm-6">
+					<h3>Highly rated</h3>
+					<ul>
+						
+					</ul>
+				</div>
+
+			</div>
+			<!-- End row -->
+
+			<p class="text-center add_bottom_45">
+				<a href="{% url 'ui:tours' %}" class="btn_1">Explore all tours (24)</a>
+			</p>
+
+		</div>
+	</section>
+{% endblock content %}

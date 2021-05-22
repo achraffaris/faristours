@@ -1,0 +1,100 @@
+{% extends 'ui/layout.html' %}
+{% load static %}
+
+{% block content %}
+<section class="parallax_window_in" data-parallax="scroll" data-image-src="{% static 'ui/img/nature1.jpg' %}" data-natural-width="1400" data-natural-height="470">
+		<div id="sub_content_in">
+			<div id="animate_intro">
+				<h1>Travel Tours</h1>
+			</div>
+		</div>
+	</section>
+	<!-- End section -->
+	<!-- End SubHeader ============================================ -->
+
+	<section class="wrapper">
+		<div class="divider_border_gray"></div>
+		<div id="filters" class="clearfix">
+			<div id="sort_filters">
+				<select name="orderby" class="selectbox">
+					<option value="popularity">Sort by Popularity</option>
+					<option value="rating">Sort by Average Rating</option>
+					<option value="date" selected='selected'>Sort by Newness</option>
+					<option value="price">Sort by Price: Low to High</option>
+					<option value="price-desc">Sort by Price: High to Low</option>
+				</select>
+			</div>
+			<div id="view_change">
+				<a href="grid.html" class="grid_bt"></a>
+				<a href="list.html" class="list_bt"></a>
+			</div>
+		</div>
+		<!-- End filters -->
+
+
+		<div class="container">
+			<div class="row">
+                        {% for tr in tours %}
+				<div class="col-md-4 col-sm-6 wow fadeIn animated" data-wow-delay="0.2s">
+					<div class="img_wrapper">
+                        {% if tr.is_top %}
+						<div class="ribbon">
+							<span>Popular</span>
+						</div>
+                        {% endif %}
+						<div class="price_grid">
+							<sup>$</sup>{{tr.price}}
+						</div>
+						<div class="img_container">
+							<a href="{% url 'ui:single_tour' tr.slug %}">
+								<img src="{{tr.thumbnail.url}}" width="800" height="533" class="img-responsive" alt="">
+								<div class="short_info">
+									<h3>{{tr.title}}</h3>
+									<em>Duration {{tr.duration}} days</em>
+									<p>
+                                        {{tr.title}}
+									</p>
+									<div class="score_wp">Superb
+										<div class="score">{{tr.feedbacks}}</div>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+					<!-- End img_wrapper -->
+				</div>
+				<!-- End col -->
+{% endfor %}
+
+
+				<nav class="pagination-wrapper">
+					<ul class="pagination">
+						<li><a href="#">1</a>
+						</li>
+						<li><a href="#">2</a>
+						</li>
+						<li><a href="#">3</a>
+						</li>
+						<li><a href="#">4</a>
+						</li>
+						<li><a href="#">5</a>
+						</li>
+						<li>
+							<a href="#" aria-label="Next">
+								<span aria-hidden="true">&raquo;</span>
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<!-- End pagination -->
+
+			</div>
+			<!-- End row -->
+		</div>
+		<!-- End container -->
+	</section>
+	<!-- End section -->
+
+
+
+{% endblock content %}

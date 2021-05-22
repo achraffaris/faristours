@@ -1,0 +1,149 @@
+{% extends 'agent/layout.html' %}
+
+{% load static %}
+{% block title %} Tour Planning{% endblock title %}  
+
+{% block breadcrumb1 %} Tour Planning{% endblock breadcrumb1 %}
+{% block breadcrumb2 %} Tour Planning{% endblock breadcrumb2 %}
+
+
+                                    {% block content %}
+                                    
+<div class="row">
+                  <div class="col-12">
+                    <!-- Card -->
+                    <div class="bg-c2-light profile-widget-header">
+                        <h4>
+                            Manage
+                        </h4>
+                    </div>
+                    <div class="card bg-transparent">
+                        <div class="card-body bg-white mb-30">
+                            <!-- Invoice Header -->
+                            <div class="invoice-header d-flex align-items-sm-center media flex-column flex-sm-row">
+                                <div class="invoice-header-left d-flex align-items-center position-relative">
+                                    <div class="">
+                                        <a href="{% url 'add_tour' %}" class="btn-circle">
+                                            <img src="{% static 'agent/assets/img/svg/plus_white.svg' %}" alt="" class="svg">
+                                        </a>
+                                    </div>
+
+
+                                    <!-- End Delete Mail -->
+
+                                    <!-- Dropdown Button -->
+                                    <div class="dropdown-button">
+                                        <a href="#" class="d-flex align-items-center" data-toggle="dropdown">Monthly <i class="icofont-rounded-down"></i></a>
+                                        <div class="dropdown-menu">
+                                        <a href="#">Daily</a>
+                                        <a href="#">Sort By</a>
+                                        <a href="#">Monthly</a>
+                                        </div>
+                                    </div>
+                                    <!-- End Dropdown Button -->
+                                </div>
+
+                                <div class="invoice-header-right d-flex align-items-center justify-content-end media-body mt-3 mt-sm-0">
+                                    <!-- Search Form -->
+                                    <form method="GET" action="" class="search-form">
+                                        <div class="theme-input-group">
+                                        <input type="text" class="theme-input-style" placeholder="Search Here">
+
+                                        <button type="submit"><img src="{% static 'agent/assets/img/svg/search-icon.svg' %}" alt="" class="svg"></button>
+                                        </div>
+                                    </form>
+                                    <!-- End Search Form -->
+
+                                    <!-- Pagination -->
+                                    <div class="pagination style--two d-flex flex-column align-items-center ml-3">
+                                        <ul class="list-inline d-inline-flex align-items-center">
+                                        <li><a href="#">
+                                            <img src="{% static 'agent/assets/img/svg/left-angle.svg' %}" alt="" class="svg">
+                                        </a></li>
+                                        <li><a href="#" class="current">
+                                            <img src="{% static 'agent/assets/img/svg/right-angle.svg' %}" alt="" class="svg">
+                                        </a></li>
+                                        </ul>
+                                    </div>
+                                    <!-- End Pagination -->
+                                </div>
+                            </div>
+                            <!-- End Invoice Header -->
+                        </div>
+                        <div class="bg-c2-light profile-widget-header">
+                            <h4>
+                                Tour Planning
+                            </h4>
+                        </div>
+                        <div class="table-responsive">
+                            <!-- Invoice List Table -->
+                            <table class="invoice-list-table text-nowrap bg-white">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Tour Title</th>
+                                        <th>Tour Date</th>
+                                        <th>Remaining seats</th>
+                                        <th>Actions </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for trd in tours_dates %}
+                                    <tr>
+                                        <td>#{{trd.id}}</td>
+                                        <td>{{trd.tour.title}}</td>
+                                        <td>{{trd.date}}</td>
+                                        <td>{{trd.seats}} seats</td>
+                                        
+                                        
+                                        <td>
+                                        <a href="{% url 'update_tour' 1 %}" type="button" class="button"><i class="icofont-edit"></i></a>  
+                                        <a href="{% url 'delete_tour' 1 %}" type="button" class="btn-danger" data-toggle="modal" data-target="#exampleModal"><i class="icofont-bin"></i></a>  
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<h2 class="swal2-title text-center">Are you sure?</h2>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="swal2-confirm btn long">Yes, delete it!</button>
+                <button type="button" class="swal2-cancel btn long bg-danger ml-1" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+                    </div>
+                  </div>
+               </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    
+                                    {% endblock content %}

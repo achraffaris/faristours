@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "lofty-bolt-289610",
+  "private_key_id": "58847ded2c6405772acfd5029b580f46d14301b3",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCjhq+pYBuWiZF9\noejkuMQOgHc+KhXsp5hlMkv9r6jNHhLOy3gvGg8F6JEyQwRsxTuYGVxvqhp8j1fv\nXMSh47fcT7Led5mvEMbF+JF8ZkTbYNF2uIC7ydb/8q2OYU3n2wo/mZtQ/W6WHhH6\nTpT72lAGaXXUby2tzJ1xke8sqFrRW41D4c+sbMPsaytUYGUKviWP9HPWwCqtrEi/\nOPU/5eyCR2C7HNzCTMYxo5wPtPF9QJ3SWrwOLJgaXyeYiUvdtuUVmgCqhJn5pw37\nTypzJ8HxWDCCfWsL2y8Cm+4QlFPC6WCpgGu8tF56/lhZIHSN+5oNT2DQB9Z1VaDW\ncSSAEyrBAgMBAAECggEADOgq0cLW8psRm3mt1O27dcyQfNzcBaWVyvj9E/0rJON4\nhw96wTb8lBIO8cll3kL0CPWJfPvPYuD6hxdKot+DKdW1j8cfX3jCw6nyq7+ztCAQ\ncF8wNAJCoMmSBtCp0kDQ7oOshWg3dAxUDW5p5nYNBnCI/xc2YwcpLydeWidAodEI\niNW5Lz/dsqTs0q40S/QSg8GXq8zufkOX/Fsy+JhCW1Av7IcSgOfeZLiGGISbPNG3\nEdYZiovUwafPYTdcgzCkLrTPaL4kLrc3rsTJyXO/PPiK9BKFfvI4MH5BqWeS2s2R\nvJkT90cUVZPIBA2LtvMts7eOt5+NXoyWEqntJm4NpQKBgQDObSAxCTnAVPuqaidm\nGp+szHQMo1jKtQJgwFv4L+SdqJe8IYYdrTwTZR9SoV1xGInnK74yHQGc8/Ktfkux\nZ5L0QQGFKmcF4ZtIMV4a/JhNF1h41XvkBBesOxS3MNtvcQuUeI8aeqjbELMBI4TL\nlE+GrBBUz/95o7Fj2iU9XKVDLQKBgQDKzBpqlm2madyILCE3i/6gXT/rzW/MZP5G\nRtZj4EXarlr3TLfwu/1FaK/Y43AStvGjEARc38Qc/Vf5U/JRTNh8rBzzCoyc/zHM\nZX2SjPDLSaJ7WqGDZPe6hP3MIM1uCDqW8aQ+6qr9XQzK/MP+XuWpjOiQ7xsoJN+u\no7vlVtCSZQKBgQCJpeDicelto/2RHGobPsOc4VS9HKtXuC3WwE5Th/QlYUeU7rHU\n1jCKKlMhsXJyuM80NEoGdqsdstnu8JmeuZcXgsV1u9mo5VC7ahf7XNZeCaQ4JvsP\nB9+VPGxK36xjenkjTuT13jb8pP0IVFv3uHTzM4dMVspfnVTrZYqRiVa2HQKBgH33\ncaErd0ibEQT0hF2Ac9UglwfdP8hyIw98CMdZE4rWKmLaIJdD7fojILdT7tVxFX73\n//3AcIyhQPf6ENY3KXGnZwQAVX9fdItFr05MhXWAc5Czpwd6u/X7jbox1ei2682+\nowsBsNxX5A5iG0vxni5G/F6qZu/0l4xe3+OAnWWRAoGAIamZ4hY850vSZEbdb6w6\nP/GuAE2mujrcMr9us/hq8Whzx0A5GlV5NoyTYsbegVBodgKeyOBb20RDsuih0pDF\nLA9rJVhbrOqLjA5SSrFFNOnsk7fZg7zR2bXjWWzaXiShTRzoMX9i6E8d/XFwcKE+\nPuCVuKlArZglEGf/PMiYsJo=\n-----END PRIVATE KEY-----\n",
+  "client_email": "faristours@lofty-bolt-289610.iam.gserviceaccount.com",
+  "client_id": "113829548774329548682",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/faristours%40lofty-bolt-289610.iam.gserviceaccount.com"
+}

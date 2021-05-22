@@ -1,0 +1,136 @@
+{% extends 'agent/layout.html' %}
+
+
+{% block title %} Dashboard{% endblock title %}  
+
+
+
+                                    {% block content %}
+                                    
+
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                          <!-- Card -->
+                                          <div class="bg-c2-light profile-widget-header">
+                                              <h4>
+                                                  Analytics (Last 90 days)
+                                              </h4>
+                                          </div>
+                                          <div class="table-responsive">
+                                              <td>
+                                              <div class="card-body bg-white mb-30">
+                                                  <div id="chart-1-container"></div>
+                                                  <div id="chart-2-container"></div>
+                                              </div>
+                                              </td>
+                                              
+                                          </div>
+                                        </div>
+
+                                     </div>
+                                    {% endblock content %}
+
+
+                                    {% block scripts %}
+                                   
+                                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+
+<script>
+   (function(w,d,s,g,js,fs){
+     g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(f){this.q.push(f);}};
+     js=d.createElement(s);fs=d.getElementsByTagName(s)[0];
+     js.src='https://apis.google.com/js/platform.js';
+     fs.parentNode.insertBefore(js,fs);js.onload=function(){g.load('analytics');};
+   }(window,document,'script'));
+   </script>
+
+<script src="https://ga-dev-tools.appspot.com/public/javascript/embed-api/components/active-users.js"></script>
+
+
+<script>
+    let token = '';
+$.getJSON('/api/accessTokens', function(data) {
+    token = data['token'];
+});
+
+gapi.analytics.ready(function () {
+
+  fetch('/api/accessTokens')
+    .then(function (response) {
+      gapi.analytics.auth.authorize({
+        'serverAuth': {
+          'access_token': token
+        }
+      });
+      dataChart1.execute();
+      dataChart2.execute();
+    });
+
+    var activeUsers = new gapi.analytics.ext.ActiveUsers({
+    container: 'active-users-container',
+    pollingInterval: 2
+  });
+
+console.log(activeUsers['activeUsers']+"visitors");
+  /**
+   * Add CSS animation to visually show the when users come and go.
+   */
+  activeUsers.once('success', function() {
+    var element = this.container.firstChild;
+    var timeout;
+
+    this.on('change', function(data) {
+      var element = this.container.firstChild;
+      var animationClass = data.delta > 0 ? 'is-increasing' : 'is-decreasing';
+      element.className += (' ' + animationClass);
+
+      clearTimeout(timeout);
+      timeout = setTimeout(function() {
+        element.className =
+            element.className.replace(/ is-(increasing|decreasing)/g, '');
+      }, 3000);
+    });
+  });
+
+  var dataChart1 = new gapi.analytics.googleCharts.DataChart({
+    query: {
+      'ids': 'ga:243052955', // <-- Replace with the ids value for your view.
+      'start-date': '90daysAgo',
+      'end-date': 'today',
+      'metrics': 'ga:sessions,ga:users',
+      'dimensions': 'ga:date'
+    },
+    chart: {
+      'container': 'chart-1-container',
+      'type': 'LINE',
+      'options': {
+        'width': '100%'
+      }
+    }
+  });
+
+
+  var dataChart2 = new gapi.analytics.googleCharts.DataChart({
+    query: {
+      'ids': 'ga:243052955', // <-- Replace with the ids value for your view.
+      'start-date': '90daysAgo',
+      'end-date': 'today',
+      'metrics': 'ga:pageviews,ga:uniquePageviews,ga:timeOnPage,ga:bounces,ga:entrances,ga:exits',
+      'sort': '-ga:pageviews',
+      'dimensions': 'ga:pagePath',
+      'max-results': 10
+    },
+    chart: {
+      'container': 'chart-2-container',
+      'type': 'PIE',
+      'options': {
+        'width': '100%',
+        'pieHole': 0.4,
+      }
+    }
+  });
+
+});
+</script>
+{% endblock scripts %}

@@ -1,0 +1,60 @@
+FarisTours -  Web Application for tours booking:
+
+* Developped by: Achraf Faris 
+* Frontend: Bootstrap
+* Backend: Django (Web Framework of Python) - Ajax
+* Relational Database Management System: MySQL
+
+Main Features:
+
+* A Visitor can:
+    - See all tours with details (price, available date, description, program etc ..) 
+    - Book a tour.
+    - Pay with multi-option: (Whatsapp, Bank Transfer, PayPal(includes Credit Cards Visa/Mastercard) ..)).
+    - Receive emails for updates (order confirmed, invoices)
+
+* An Agent can:
+    - Login / Logout to the Management Panel 
+    - CRUD operations for tours, blogs, pages.
+    - View - Filter Visitors, Tours, blogs, pages.
+    - Confirm Visitor booking's when payment transaction is completed.
+    - Add Confirmed Travellers detail to a table for next tour (Print or Download as PDF).
+        (Full name, phone number, city of departure, date of departure, status of payment ...)
+
+
+--------------------------------------------------------------------------------------------------------------
+
+FarisTours - Application Web pour les attractions touristiques
+
+ 
+
+* Développé par: Achraf Faris 
+
+
+* Frontend: Bootstrap
+* Backend: Django (Web Framework of Python) - Ajax
+* Système relationnel de gestion de base de données: MySQL
+
+ 
+
+Principales caractéristiques:
+
+ 
+
+* Un visiteur peut :
+    - Voir toutes les attractions touristiques
+           avec des détails (prix, date disponible, description, programme, etc.) DONE
+    - Réservez une attraction touristique. 
+    - Payer avec multi-option: (WhatsApp, Virement bancaire, PayPal (comprend les cartes de crédit Visa /Mastercard) ..)).
+    - Recevez des e-mails pour les mises à jour (commande confirmée, factures)
+
+ 
+
+* Un agent peut:
+    - Login/Logout au Panel de Gestion 
+    - Opérations CRUD pour les attractions touristiques, blogs, pages.
+    - Voir - Filtrer les voyageurs, attractions touristiques
+, blogs, pages.
+    - Confirmer la réservation des voyageurs lorsque la transaction de paiement est confirmée.
+    - Ajouter les détails des voyageurs qui ont confirmés leur réservation à une table pour la prochaine visite (Peut etre Imprimée ou téléchargée en PDF).
+        et qui contient (Nom complet de voyageur, numéro de téléphone, ville de départ, date de départ, état de paiement et autre utiles informations)

@@ -1,0 +1,180 @@
+{% extends 'client/layout.html' %}
+{% block title %}Tours{% endblock title %}
+{% block head %}
+{% endblock head %}
+{% block content %}
+<div class="ps-hero">
+   <div class="container">
+      <h3>SHOP PAGE</h3>
+      <p>Shop with Sidebar</p>
+   </div>
+</div>
+<main class="ps-main">
+   <div class="ps-container">
+      <div class="ps-product-group no-sidebar pt-40" data-item="4">
+         <div class="ps-product-group__header">
+            <div class="ps-filter">
+               <div class="row">
+                  <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 ">
+                     <div class="ps-filter__trigger">
+                        <div class="ps-filter__icon"><span></span></div>
+                        <p>Filter Tour</p>
+                     </div>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 ">
+                     <div class="ps-filter__result">
+                        <p>Showing 1–12 of 35 results</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="ps-filter__content">
+                  <div class="ps-filter__column" data-mh="column">
+                     <h3>SORT CATEGORIES BY</h3>
+                     <ul class="ps-list--filter">
+                        <li class="current"><a href="product-listing.html">All</a></li>
+                        <li><a href="product-listing.html">Men</a></li>
+                        <li><a href="product-listing.html">Women</a></li>
+                        <li><a href="product-listing.html">Suite & Jean</a></li>
+                        <li><a href="product-listing.html">Accessories</a></li>
+                        <li><a href="product-listing.html">Kids</a></li>
+                        <li><a href="product-listing.html">Handmade</a></li>
+                     </ul>
+                  </div>
+                  <div class="ps-filter__column" data-mh="column">
+                     <h3>SORT PRODUCTS BY</h3>
+                     <ul class="ps-list--filter">
+                        <li class="current"><a href="product-listing.html">Default Sorting</a></li>
+                        <li><a href="product-listing.html">Sort by popularity</a></li>
+                        <li><a href="product-listing.html">Sort by average rating</a></li>
+                        <li><a href="product-listing.html">Sort by newness</a></li>
+                        <li><a href="product-listing.html">Sort by price: low to high</a></li>
+                        <li><a href="product-listing.html">Sort by price: high to low</a></li>
+                     </ul>
+                  </div>
+                  <div class="ps-filter__column" data-mh="column">
+                     <h3>FILTER BY PRICE</h3>
+                     <ul class="ps-list--filter">
+                        <li class="current"><a href="product-listing.html">All</a></li>
+                        <li><a href="product-listing.html">£10.00 - £110.00</a></li>
+                        <li><a href="product-listing.html">£110.00 - £210.00</a></li>
+                        <li><a href="product-listing.html">£210.00 - £310.00</a></li>
+                        <li><a href="product-listing.html">£310.00+</a></li>
+                     </ul>
+                  </div>
+                  <div class="ps-filter__column" data-mh="column">
+                     <h3>FILTER BY PRICE</h3>
+                     <ul class="ps-list--color">
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                     </ul>
+                  </div>
+                  <div class="ps-filter__column" data-mh="column">
+                     <h3>FILTER BY PRICE</h3>
+                     <ul class="ps-list--filter">
+                        <li class="current"><a href="product-listing.html">All</a></li>
+                        <li><a href="product-listing.html">New</a></li>
+                        <li><a href="product-listing.html">SaleOff</a></li>
+                        <li><a href="product-listing.html">Show Only Products On Sale</a></li>
+                        <li><a href="product-listing.html">In Stock Only</a></li>
+                        <li><a href="product-listing.html">Out of stock</a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="ps-product-group__content">
+            <div class="ps-product-group__action"></div>
+            {% for tr in tours %} 
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+               <div class="ps-post ps-post--home">
+                  <div class="ps-post__thumbnail">
+                     <div class="ps-post__posted"><span class="date">${{tr.price}}</span>
+                     </div>
+                     <a class="ps-post__overlay" href="{% url 'ui:tour' tr.slug %}">
+                     </a><img class="lazy" src="{{tr.thumbnail.url}}" alt="">
+                  </div>
+                  <div class="ps-post__content">
+                     <a class="ps-post__title" href="{% url 'ui:tour' tr.slug %}">{{tr.title}}</a>
+                     <div class="br-wrapper br-theme-fontawesome-stars">
+                        <div class="br-widget">
+                {% for e in range %}
+                               <a data-rating-value="{{e}}" data-rating-text="{{e}}" class="{% if e < tr.feedbacks %}br-selected br-current{% endif %}"></a>
+                {% endfor %}
+                        </div>
+                     </div>
+                     <p>Duration: {{tr.duration}} {% if tr.duration == 1 %} Day {% else %}Days{% endif %}</p>
+                     <a class="ps-post__morelink" href="{% url 'ui:tour' tr.slug %}">View Tour<i class="ps-icon-arrow-right"></i></a>
+                  </div>
+               </div>
+            </div>
+            {% endfor %}
+         </div>
+         <div class="ps-product-group__footer">
+            <div class="ps-pagination mb-50">
+               <ul class="pagination">
+                  <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
+                  <li class="active"><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">...</a></li>
+                  <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </div>
+</main>
+<div class="ps-section--partner">
+   <div class="ps-container">
+      <div class="owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="60" data-owl-nav="false" data-owl-dots="false" data-owl-item="5" data-owl-item-xs="3" data-owl-item-sm="3" data-owl-item-md="4" data-owl-item-lg="5" data-owl-duration="1000" data-owl-mousedrag="on"><a href="#"><img src="images/partner/1.png" alt=""></a><a href="#"><img src="images/partner/2.png" alt=""></a><a href="#"><img src="images/partner/3.png" alt=""></a><a href="#"><img src="images/partner/4.png" alt=""></a><a href="#"><img src="images/partner/5.png" alt=""></a><a href="#"><img src="images/partner/1.png" alt=""></a><a href="#"><img src="images/partner/2.png" alt=""></a><a href="#"><img src="images/partner/3.png" alt=""></a><a href="#"><img src="images/partner/4.png" alt=""></a><a href="#"><img src="images/partner/5.png" alt=""></a></div>
+   </div>
+</div>
+<div class="ps-section--features">
+   <div class="ps-container">
+      <div class="row">
+         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+            <div class="ps-iconbox">
+               <header>
+                  <i class="ps-icon-delivery-truck"></i>
+                  <h3>FREE SHIPPING</h3>
+                  <p>ON ORDER OVER $199</p>
+               </header>
+               <p>Want to track a package? Find tracking information and order details from Your Orders.</p>
+            </div>
+         </div>
+         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+            <div class="ps-iconbox">
+               <header>
+                  <i class="ps-icon-money-1"></i>
+                  <h3>100% MONEY BACK.</h3>
+                  <p>WITHIN 30 DAYS AFTER DELIVERY.</p>
+               </header>
+               <p>You may return most new, unopened items sold within 30 days of delivery for a full refund.</p>
+            </div>
+         </div>
+         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+            <div class="ps-iconbox">
+               <header>
+                  <i class="ps-icon-customer-service"></i>
+                  <h3>SUPPORT 24/7.</h3>
+                  <p>WE CAN HELP YOU ONLINE.</p>
+               </header>
+               <p>We offer a 24/7 customer hotline so you’re never alone if you have a question.</p>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock content %}
+{% block scripts %}
+{% endblock scripts %}

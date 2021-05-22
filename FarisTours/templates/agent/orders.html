@@ -1,0 +1,139 @@
+{% extends 'agent/layout.html' %}
+{% load widget_tweaks %}
+{% block title %} Booking Orders {% endblock title %}  
+{% block breadcrumb1 %} {% endblock breadcrumb1 %}
+{% block breadcrumb2 %} {% endblock breadcrumb2 %}
+{% load static %}
+{% block content %}
+<div class="col-12">
+   
+   <div class="card mb-20">
+      <div class="bg-c2-light profile-widget-header">
+         <h4 class="d-flex align-items-center">
+             Filter
+         </h4>
+     </div>
+
+     
+     <div class="card-body bg-white mb-10">
+      <!-- Invoice Header -->
+      <div class="invoice-header d-flex align-items-sm-center media flex-column flex-sm-row">
+          <div class="invoice-header-left d-flex align-items-center position-relative">
+              <div class="">
+                  <a href="{% url 'add_tour' %}" class="btn-circle">
+                      <img src="{% static 'agent/assets/img/svg/plus_white.svg' %}" alt="" class="svg">
+                  </a>
+              </div>
+              <!-- End Delete Mail -->
+
+              <!-- Dropdown Button -->
+              <div class="dropdown-button">
+                  <a href="#" class="d-flex align-items-center" data-toggle="dropdown">Monthly <i class="icofont-rounded-down"></i></a>
+                  <div class="dropdown-menu">
+                  <a href="#">Daily</a>
+                  <a href="#">Sort By</a>
+                  <a href="#">Monthly</a>
+                  </div>
+              </div>
+              <!-- End Dropdown Button -->
+          </div>
+
+          <div class="invoice-header-right d-flex align-items-center justify-content-end media-body mt-3 mt-sm-0">
+              <!-- Search Form -->
+              <form action="#" class="search-form">
+                  <div class="theme-input-group">
+                  <input type="text" class="theme-input-style" placeholder="Search Here">
+
+                  <button type="submit"><img src="{% static 'agent/assets/img/svg/search-icon.svg' %}" alt="" class="svg"></button>
+                  </div>
+              </form>
+              <!-- End Search Form -->
+
+              <!-- Pagination -->
+              <div class="pagination style--two d-flex flex-column align-items-center ml-3">
+                  <ul class="list-inline d-inline-flex align-items-center">
+                  
+                  <li>
+                  {% if page_obj.has_previous %}
+                  <a href="?page={{ page_obj.previous_page_number }}" class="current">
+                      <img src="{% static 'agent/assets/img/svg/left-angle.svg' %}" alt="" class="svg">
+                  </a>
+                  {% else %}
+                  <a href="#">
+                      <img src="{% static 'agent/assets/img/svg/left-angle.svg' %}" alt="" class="svg">
+                  </a>
+                          {% endif %}
+
+                  </li>
+                  <li>
+                  {% if page_obj.has_next %}
+                  <a href="?page={{ page_obj.next_page_number }}" class="current">
+                      <img src="{% static 'agent/assets/img/svg/right-angle.svg' %}" alt="" class="svg">
+                  </a>
+                  {% else %}
+                  <a href="#">
+                      <img src="{% static 'agent/assets/img/svg/right-angle.svg' %}" alt="" class="svg">
+                  </a>
+                          {% endif %}
+
+                  </li>
+                  </ul>
+              </div>
+              <!-- End Pagination -->
+          </div>
+      </div>
+      <!-- End Invoice Header -->
+  </div>
+   </div><div class="bg-c2-light profile-widget-header">
+         <h4>
+             Booking Orders
+         </h4>
+     </div>
+   <div class="table-responsive">
+      <!-- Invoice List Table -->
+      
+      <table class="text-nowrap bg-white dh-table table-striped" id="data">
+         <thead>
+            <tr>
+                <th>ID <img src="{% static 'agent/assets/img/svg/table-down-arrow.svg' %}" alt="" class="svg"></th>
+                <th>Tour <img src="{% static 'agent/assets/img/svg/table-down-arrow.svg' %}" alt="" class="svg"></th>
+               <th>Planning Date <img src="{% static 'agent/assets/img/svg/table-down-arrow.svg' %}" alt="" class="svg"></th>
+               <th>Name <img src="{% static 'agent/assets/img/svg/table-down-arrow.svg' %}" alt="" class="svg"></th>
+               <th>Email <img src="{% static 'agent/assets/img/svg/table-down-arrow.svg' %}" alt="" class="svg"></th>
+
+               <th>Phone Number <img src="{% static 'agent/assets/img/svg/table-down-arrow.svg' %}" alt="" class="svg"></th>
+               <th>Amount <img src="{% static 'agent/assets/img/svg/table-down-arrow.svg' %}" alt="" class="svg"></th>
+               <th>Issued Date <img src="{% static 'agent/assets/img/svg/table-down-arrow.svg' %}" alt="" class="svg"></th>
+               <th>Status</th>
+            </tr>
+         </thead>
+         <tbody>
+            {% for book_ord in page_obj %}
+            <tr>
+                <td>#{{book_ord.id}}</td>
+               <td>{{book_ord.planning.tour.title}}</td>
+               <td>{{book_ord.planning.date}}</td>
+               <td>{{book_ord.full_name}}</td>
+               <td>{{book_ord.email}}</td>
+               <td>{{book_ord.phone}}</td>
+               <td>${{book_ord.planning.tour.price}}</td>
+               <td>{{book_ord.created_date}}</td>
+               <td>
+               {% if book_ord.status == 'pg' %}
+               <button type="button" class="status-btn on_hold">Pending</button>
+               {% elif book_ord.status == 'ok' %}
+               <button type="button" class="status-btn completed">Completed</button>
+               {% else %}
+               <button type="button" class="status-btn un_paid">Canceled</button>
+               {% endif %}
+                   </td>
+            </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+      <!-- End Invoice List Table -->
+   </div>
+</div>
+</div>
+
+{% endblock content %}
