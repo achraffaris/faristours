@@ -24,12 +24,12 @@ mimetypes.add_type("text/css", ".css", True)
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'm8kk7wfi3$epae)g*n1z)oda%flak^$s@2+)f7k)vy8i_d1u75'
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-#ALLOWED_HOSTS = ['demo.achraffaris.net','www.demo.achraffaris.net']
+#ALLOWED_HOSTS = ['']
 ALLOWED_HOSTS = ['*']
 
 
@@ -97,9 +97,9 @@ DATABASES = {
 """DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'tmtryxip_faristours',
-        'USER': 'tmtryxip_faristoursuser',
-        'PASSWORD': 'AD8fU&7.tYww',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306',
     }
@@ -152,8 +152,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,"media")
 
 
-STRIPE_PUBLIC_KEY = "pk_test_51IpYxDLXKYiwzDoyGSVT3F4Z2empsSQyaptgls3xUCaBgPvv4IC8T0wMpWfasdYIi7YlddT4bCpuNrOWugaNMjZ500sbYeQ0xr"
-STRIPE_SECRET_KEY = "sk_test_51IpYxDLXKYiwzDoyrObULjMJ1axC4UWAbrcdqL1DgPn6jyXPulLxlhARVswLRzcLeIzEfIZl85qYyXiooxLW77yN00LXNwI86U"
+STRIPE_PUBLIC_KEY = ""
+STRIPE_SECRET_KEY = "
 
 
 
